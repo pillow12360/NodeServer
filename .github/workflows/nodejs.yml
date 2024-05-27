@@ -26,10 +26,10 @@ jobs:
       - name: Build and Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: 'your-app-name'
+          HEROKU_APP_NAME: 'nodeserver'
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.email "ehdcks1256@naver.com"
+          git config --global user.name "pillow12350"
           git add -f client/build
           git commit -m "Deploy React Build to Heroku"
           heroku git:remote -a $HEROKU_APP_NAME
