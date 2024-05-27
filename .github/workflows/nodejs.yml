@@ -23,14 +23,22 @@ jobs:
           npm install
           cd client && npm install && npm run build
 
+      - name: Setup Heroku Credentials
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          heroku login -i
+          git config --global credential.helper store
+          echo https://$HEROKU_API_KEY:@git.heroku.com/ > ~/.git-credentials
+
       - name: Build and Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: 'nodeserver'
         run: |
-          git config --global user.email "pillow12360@gmail.com"
-          git config --global user.name "Han"
+          git config --global user.email "ehdcks1256@naver.com"
+          git config --global user.name "pillow12360"
           git add -f client/build
           git commit -m "Deploy React Build to Heroku"
           heroku git:remote -a $HEROKU_APP_NAME
-          git push heroku HEAD:master -f
+          git push heroku HEAD:main -f
