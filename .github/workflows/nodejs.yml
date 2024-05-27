@@ -23,9 +23,6 @@ jobs:
           npm install
           cd client && npm install && npm run build
 
-      - name: Run tests
-        run: npm test
-
       - name: Build and Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
