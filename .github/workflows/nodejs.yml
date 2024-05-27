@@ -27,9 +27,12 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          heroku login -i
-          git config --global credential.helper store
-          echo https://$HEROKU_API_KEY:@git.heroku.com/ > ~/.git-credentials
+          echo "machine api.heroku.com
+            login ${HEROKU_API_KEY}
+            password " > ~/.netrc
+          echo "machine git.heroku.com
+            login ${HEROKU_API_KEY}
+            password " >> ~/.netrc
 
       - name: Build and Deploy to Heroku
         env:
