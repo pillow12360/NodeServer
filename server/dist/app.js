@@ -16,9 +16,9 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(helmet());
 app.use(compression());
-app.use(express_1.default.static(path.join(__dirname, '../client/build')));
+app.use(express_1.default.static(path.join(__dirname, '../../client/build')));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

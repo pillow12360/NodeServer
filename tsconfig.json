@@ -3,7 +3,7 @@
     "target": "es2018", // 현대적인 환경을 대상으로 합니다
     "module": "commonjs", // Node.js의 모듈 시스템을 사용합니다
     "outDir": "server/dist", // 컴파일된 JS 파일을 저장할 위치
-    "rootDir": "./", // 소스 파일의 루트 디렉토리
+    "rootDir": "./server/src", // 소스 파일의 루트 디렉토리
     "strict": true, // 모든 엄격한 타입 체킹 옵션 활성화
     "esModuleInterop": true, // ES 모듈과의 상호 운용성 확보
     "skipLibCheck": true, // 성능을 위해 라이브러리 검사 건너뛰기
