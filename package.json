@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node server/dist/app.js",
     "dev": "nodemon --exec ts-node app.ts",
     "build:client": "cd client && npm install && npm run build",
-    "build:server": "tsc",
+    "build:server": "cd server && tsc",
     "heroku-postbuild": "npm run build:client && npm run build:server"
   },
   "author": "",
