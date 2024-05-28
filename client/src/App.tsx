@@ -1,9 +1,10 @@
 import './App.css';
+import Three from './components/Three';
 
 function App() {
   return (
     <div>
-      <h1>hello World!</h1>
+      <Three />
     </div>
   );
 }
