@@ -5,10 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run build",
     "build": "tsc",
     "start": "tsc && node dist/app.js",
-    "dev": "nodemon --exec ts-node app.ts"
+    "dev": "nodemon --exec ts-node app.ts",
+    "build:client": "cd client && npm install && npm run build",
+    "build:server": "tsc -p src",
+    "heroku-postbuild": "npm run build:client && npm run build:server"
   },
   "author": "",
   "license": "ISC",
