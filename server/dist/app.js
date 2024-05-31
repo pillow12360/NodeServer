@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -20,6 +21,7 @@ app.use(express_1.default.static(path.join(__dirname, '../../client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
 });
+app.use('/api/users', userRoutes_1.default);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
