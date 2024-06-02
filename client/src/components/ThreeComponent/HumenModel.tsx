@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-const SimpleCube: React.FC = () => {
+const HumanModel: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 씬(Scene) 생성
+    // 씬 생성
     const scene = new THREE.Scene();
     // 카메라 생성
     const camera = new THREE.PerspectiveCamera(
@@ -20,21 +21,30 @@ const SimpleCube: React.FC = () => {
 
     mountRef.current?.appendChild(renderer.domElement);
 
-    // 기하체 및 재질 생성 후 메쉬 생성
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    // 로더를 통해 모델 로드
+    const loader = new GLTFLoader();
+    let model: THREE.Object3D;
 
-    camera.position.z = 5;
+    loader.load(
+      'path/to/your/model.glb', // 모델 파일 경로
+      (gltf) => {
+        model = gltf.scene;
+        scene.add(model);
+        model.position.set(0, -1, 0); // 위치 조정
+        camera.position.z = 5;
+      },
+      undefined,
+      (error) => {
+        console.error('An error happened', error);
+      },
+    );
 
     // 애니메이션 함수
     const animate = function () {
       requestAnimationFrame(animate);
-
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
+      if (model) {
+        model.rotation.y += 0.01;
+      }
       renderer.render(scene, camera);
     };
 
@@ -43,13 +53,12 @@ const SimpleCube: React.FC = () => {
     // 컴포넌트 언마운트 시 리소스 정리
     return () => {
       mountRef.current?.removeChild(renderer.domElement);
-      scene.remove(cube);
-      geometry.dispose();
-      material.dispose();
+      if (model) scene.remove(model);
+      renderer.dispose();
     };
   }, []);
 
   return <div ref={mountRef} />;
 };
 
-export default SimpleCube;
+export default HumanModel;
