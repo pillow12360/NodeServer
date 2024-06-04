@@ -11,6 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { text: '홈', path: '/' },
     { text: '프로젝트', path: '/project' },
     { text: 'Contact', path: '/contact' },
+    { text: '로그인/회원가입', path: '/signin' },
   ];
 
   return (
@@ -28,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               to="/"
               sx={{ color: 'white', fontSize: '1.5rem' }} // 폰트 크기 증가
             >
-              한동찬 웹 앱
+              한동찬 포트폴리오
             </Button>
           </Typography>
           {menuItems.map((item) => (
