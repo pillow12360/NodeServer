@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PaletteMode } from '@mui/material';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -95,7 +96,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Features
+                    홈
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -103,7 +104,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Testimonials
+                    프로젝트
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -111,7 +112,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Highlights
+                    하이라이트
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -119,7 +120,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Pricing
+                    노션 페이지
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -127,7 +128,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    FAQ
+                    깃 허브 주소
                   </Typography>
                 </MenuItem>
               </Box>
@@ -144,9 +145,8 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 color="primary"
                 variant="text"
                 size="small"
-                component="a"
-                href="/signin"
-                target="_blank"
+                component={Link}
+                to="/signin"
               >
                 로그인
               </Button>
@@ -154,9 +154,8 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 color="primary"
                 variant="contained"
                 size="small"
-                component="a"
-                href="/signup"
-                target="_blank"
+                component={Link}
+                to="/signup"
               >
                 회원가입
               </Button>
@@ -194,16 +193,16 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                     />
                   </Box>
                   <MenuItem onClick={() => scrollToSection('features')}>
-                    Features
+                    홈
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('testimonials')}>
-                    Testimonials
+                    프로젝트
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('highlights')}>
-                    Highlights
+                    노션 페이지
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('pricing')}>
-                    Pricing
+                    깃 허브 주소
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('faq')}>
                     FAQ
@@ -213,24 +212,22 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                     <Button
                       color="primary"
                       variant="contained"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
+                      component={Link}
+                      to="/signup"
                       sx={{ width: '100%' }}
                     >
-                      Sign up
+                      회원가입
                     </Button>
                   </MenuItem>
                   <MenuItem>
                     <Button
                       color="primary"
                       variant="outlined"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
+                      component={Link}
+                      to="/signin"
                       sx={{ width: '100%' }}
                     >
-                      Sign in
+                      로그인
                     </Button>
                   </MenuItem>
                 </Box>

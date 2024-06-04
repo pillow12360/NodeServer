@@ -27,20 +27,20 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          paddingTop: '64px', // AppBar height adjustment
-          paddingBottom: '64px', // Extra padding if needed
-        }}
-      >
-        <Router>
+      <Router>
+        <CssBaseline />
+        <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '100vh',
+            paddingTop: '15%', // AppBar height adjustment
+            paddingBottom: '60px', // Extra padding if needed
+          }}
+        >
           <CssBaseline />
           <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
           <Routes>
@@ -51,8 +51,8 @@ const App: React.FC = () => {
             <Route path="/SignUp" element={<SignUp />} />
           </Routes>
           <Footer />
-        </Router>
-      </Box>
+        </Box>
+      </Router>
     </ThemeProvider>
   );
 };
