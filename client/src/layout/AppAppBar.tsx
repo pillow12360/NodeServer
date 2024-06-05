@@ -95,7 +95,18 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   onClick={() => scrollToSection('features')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography
+                    variant="body2"
+                    color="text.primary"
+                    component={Link}
+                    to="/"
+                    sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                    }}
+                  >
                     홈
                   </Typography>
                 </MenuItem>
@@ -103,7 +114,18 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   onClick={() => scrollToSection('testimonials')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography
+                    variant="body2"
+                    color="text.primary"
+                    component={Link}
+                    to="/project"
+                    sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                    }}
+                  >
                     프로젝트
                   </Typography>
                 </MenuItem>
@@ -111,7 +133,18 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   onClick={() => scrollToSection('highlights')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography
+                    variant="body2"
+                    color="text.primary"
+                    component={Link}
+                    to="/hilight"
+                    sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                    }}
+                  >
                     하이라이트
                   </Typography>
                 </MenuItem>
@@ -119,7 +152,18 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   onClick={() => scrollToSection('pricing')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography
+                    variant="body2"
+                    color="text.primary"
+                    component={Link}
+                    to="https://tmdtjs.notion.site/Simple-Node-Server-2163082c21904274b5c85469bf35a6f7?pvs=4"
+                    sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                    }}
+                  >
                     노션 페이지
                   </Typography>
                 </MenuItem>
@@ -127,7 +171,18 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   onClick={() => scrollToSection('faq')}
                   sx={{ py: '6px', px: '12px' }}
                 >
-                  <Typography variant="body2" color="text.primary">
+                  <Typography
+                    variant="body2"
+                    color="text.primary"
+                    component={Link}
+                    to="https://github.com/pillow12360/NodeServer"
+                    sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                      },
+                    }}
+                  >
                     깃 허브 주소
                   </Typography>
                 </MenuItem>

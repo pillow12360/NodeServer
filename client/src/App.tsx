@@ -11,6 +11,7 @@ import { PaletteMode } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Three from './components/ThreeComponent/Three';
 
 const App: React.FC = () => {
   const [mode, setMode] = React.useState<PaletteMode>('light');
@@ -44,14 +45,20 @@ const App: React.FC = () => {
           <CssBaseline />
           <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/"
+              element={
+                <HomePage mode={mode} toggleColorMode={toggleColorMode} />
+              }
+            />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/project" element={<ProjectPage />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/three.js" element={<Three />} />
           </Routes>
-          <Footer />
         </Box>
+        <Footer mode={mode} toggleColorMode={toggleColorMode} />
       </Router>
     </ThemeProvider>
   );

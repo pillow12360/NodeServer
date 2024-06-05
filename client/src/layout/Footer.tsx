@@ -10,6 +10,13 @@ import IconButton from '@mui/material/IconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import ToggleColorMode from './ToggleColorMode';
+import { PaletteMode } from '@mui/material';
+
+interface AppAppBarProps {
+  mode: PaletteMode;
+  toggleColorMode: () => void;
+}
 
 function Copyright() {
   return (
@@ -26,7 +33,10 @@ function Copyright() {
 
 const defaultTheme = createTheme();
 
-export default function StickyFooter() {
+export default function StickyFooter({
+  mode,
+  toggleColorMode,
+}: AppAppBarProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box
@@ -81,6 +91,11 @@ export default function StickyFooter() {
                 <IconButton href="https://www.facebook.com" color="inherit">
                   <FacebookIcon />
                 </IconButton>
+                <ToggleColorMode
+                  mode={mode}
+                  toggleColorMode={toggleColorMode}
+                />
+
                 <IconButton href="https://www.twitter.com" color="inherit">
                   <TwitterIcon />
                 </IconButton>
